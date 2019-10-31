@@ -1,8 +1,10 @@
-const negociacaoController = new NegociacaoController();
+let pessoasController = new PessoaController();
 $(function () {
-    $('#btnAdd').on({
-        click: function () {
-            negociacaoController.adiciona.bind(this);
+    $('form').on({
+        submit: function (e) {
+            e.preventDefault();
+            pessoasController.add();
+            pessoasController.update();
         }
     });
 });
