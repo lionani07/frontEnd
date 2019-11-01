@@ -1,6 +1,17 @@
-class NegociacoesView extends View {
-    template(model) {
-        return `       
+System.register(["./View"], function (exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var View_1, NegociacoesView;
+    return {
+        setters: [
+            function (View_1_1) {
+                View_1 = View_1_1;
+            }
+        ],
+        execute: function () {
+            NegociacoesView = class NegociacoesView extends View_1.View {
+                template(model) {
+                    return `       
        <table class="table table-hover table-bordered">
         <thead>
             <tr>
@@ -20,14 +31,18 @@ class NegociacoesView extends View {
                 </tr>              
                `).join('')}
            <tr>
-            <td colspan="3"></td>
+            <td colspan="3">Total: </td>
             <td>${model.suma()}</td>
            <tr>
         </tbody>
         
         <tfoot>
         </tfoot>
-    </table>       
+    </table>         
        `;
-    }
-}
+                }
+            };
+            exports_1("NegociacoesView", NegociacoesView);
+        }
+    };
+});

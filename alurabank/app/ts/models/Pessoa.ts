@@ -1,12 +1,7 @@
 class Pessoa{
 
-    constructor(private _nome: string, private _idade: number){};
+    constructor(readonly nome: string, readonly idade: number){};
 
-   get nome(): string{
-       return this._nome;
-   }
-
-   get idade(): number{
-       return this._idade;
-   }
+    //have field private and geter() by field;
+   
 }

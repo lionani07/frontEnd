@@ -1,4 +1,7 @@
-class NegociacoesView extends View<Negociacoes>{
+import { View } from './View';
+import { Negociacoes} from '../models/Negociacoes';
+
+export class NegociacoesView extends View<Negociacoes>{
     
     template(model: Negociacoes): string{      
        return `       
@@ -23,14 +26,14 @@ class NegociacoesView extends View<Negociacoes>{
                `
            ).join('')}
            <tr>
-            <td colspan="3"></td>
+            <td colspan="3">Total: </td>
             <td>${model.suma()}</td>
            <tr>
         </tbody>
         
         <tfoot>
         </tfoot>
-    </table>       
+    </table>         
        `;
     }
 }

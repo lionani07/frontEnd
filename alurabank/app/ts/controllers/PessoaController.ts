@@ -19,7 +19,8 @@ class PessoaController{
        let nomeV = String(this._nome.val());
        let idadeV = Number(this._idade.val());
        let pessoa = new Pessoa(nomeV, idadeV);
-       this._pessoas.add(pessoa);      
+       this._pessoas.add(pessoa);   
+       ;
     }
 
     findAll(): Pessoa[]{

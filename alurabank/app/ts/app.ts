@@ -1,29 +1,12 @@
-//const negociacaoController = new NegociacaoController();
-let pessoasController =  new PessoaController();
+import {NegociacaoController} from './controllers/NegociacaoController';
 
+let negociacaoController = new NegociacaoController(); 
 
-//let btnAdd = document.querySelector("#btnAdd");
-//btnAdd.addEventListener("click", negociacaoController.adiciona.bind(negociacaoController)); 
+$(function(){  
 
-$(function(){    
-    /*
-    pessoasController.form.on({
-        submit: function(e){
-            e.preventDefault();            
-            pessoasController.add();
-            pessoasController.update();            
-        }
-    });*/
-
-    $('form').on({
-        submit: function(e){
-            e.preventDefault();
-            pessoasController.add();
-            pessoasController.update();     
-        }
-
+    $('#btnAdd').on('click', function(event: Event){            
+        negociacaoController.adiciona(event);
     });
-
 
 
 });

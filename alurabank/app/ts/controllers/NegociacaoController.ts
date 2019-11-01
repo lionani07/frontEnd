@@ -1,38 +1,51 @@
-class NegociacaoController{
+import { Negociacao, Negociacoes } from '../models/index';
+import { NegociacoesView, MessageView } from '../views/index';
+import { DiaDaSemana } from '../models/enums/DiaDaSemana';
 
-    private _form : HTMLFormElement;
+export class NegociacaoController{
 
-    private _inputDate: HTMLInputElement;
-    private _inputQuantidade: HTMLInputElement;
-    private _inputValor: HTMLInputElement;
-    private _table : HTMLTableElement;
+    private _form : JQuery;
+
+    private _inputDate: JQuery;
+    private _inputQuantidade: JQuery;
+    private _inputValor: JQuery;
+    private _table : JQuery;
     private negociacoes = new Negociacoes();
     private negociacoesView = new NegociacoesView("#tableNegociacoes");
     private messageView = new MessageView("#messageView");
 
     constructor(){
-        this._form = <HTMLFormElement> document.querySelector(".form");
-        this._inputDate = <HTMLInputElement> document.querySelector('#data');
-        this._inputQuantidade = <HTMLInputElement> document.querySelector('#quantidade');
-        this._inputValor = <HTMLInputElement> document.querySelector('#valor');
+        this._form =$(".form");
+        this._inputDate = $('#data');
+        this._inputQuantidade = $('#quantidade');
+        this._inputValor = $('#valor');
         this.negociacoesView.update(this.negociacoes);        
     }
 
     adiciona(event: Event): void{       
-        event.preventDefault();        
+        event.preventDefault(); 
+        let date = new Date(String(this._inputDate.val()).replace(/-/g, ","));
+        if(!this.isDiaUtil(date)){
+            this.messageView.update("Escolha data util");
+            return;
+        }
         const negociacao = new Negociacao(
-            new Date(this._inputDate.value.replace(/-/g, ",")),
-            parseFloat(this._inputQuantidade.value),
-            parseFloat(this._inputValor.value));
+            date,
+            Number(this._inputQuantidade.val()),
+            Number(this._inputValor.val()));
        
         this.negociacoes.adiciona(negociacao);   
         this.negociacoesView.update(this.negociacoes);
         this.messageView.update("Negociaçao add com successo"); 
-        this._form.reset();
+
+        console.log(this.isDiaUtil(date));
         
     }
 
-    
+    private isDiaUtil(date: Date): boolean{
+        return !(date.getDay()===DiaDaSemana.Sabado || date.getDay()===DiaDaSemana.Domingo);      
+    }
+
 
   
 

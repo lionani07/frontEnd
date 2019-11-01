@@ -8,7 +8,7 @@ class Pessoas{
     }
 
     findAll(): Pessoa[]{
-        return [].concat(this._pessoas);
+        return ([] as Pessoa[]).concat(this._pessoas);
     }
 
 

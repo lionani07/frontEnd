@@ -1,4 +1,6 @@
-class Negociacoes{
+import { Negociacao } from './Negociacao';
+
+export class Negociacoes{
     private _negociacoes: Negociacao[] = [];
 
 
@@ -6,8 +8,8 @@ class Negociacoes{
         this._negociacoes.push(negociacao);        
     }
 
-    toArray(): Negociacao[]{
-        return [].concat(this._negociacoes);
+    toArray(): Negociacao[]{          
+        return ([] as Negociacao[]).concat(this._negociacoes);
     }
 
     suma(): number{

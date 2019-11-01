@@ -1,13 +1,7 @@
 class Pessoa {
-    constructor(_nome, _idade) {
-        this._nome = _nome;
-        this._idade = _idade;
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
     }
     ;
-    get nome() {
-        return this._nome;
-    }
-    get idade() {
-        return this._idade;
-    }
 }

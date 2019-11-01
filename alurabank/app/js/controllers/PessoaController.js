@@ -14,6 +14,7 @@ class PessoaController {
         let idadeV = Number(this._idade.val());
         let pessoa = new Pessoa(nomeV, idadeV);
         this._pessoas.add(pessoa);
+        ;
     }
     findAll() {
         return this._pessoas.findAll();
