@@ -4,9 +4,14 @@ let negociacaoController = new NegociacaoController();
 
 $(function(){  
 
-    $('#btnAdd').on('click', function(event: Event){            
-        negociacaoController.adiciona(event);
+    $('#btnAdd').on({
+        'click': negociacaoController.adiciona.bind(negociacaoController)
     });
+
+    $('#btnImporta').on({
+        click: negociacaoController.importaDatos.bind(negociacaoController)
+    });
+    
 
 
 });

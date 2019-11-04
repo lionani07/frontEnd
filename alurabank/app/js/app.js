@@ -11,8 +11,11 @@ System.register(["./controllers/NegociacaoController"], function (exports_1, con
         execute: function () {
             negociacaoController = new NegociacaoController_1.NegociacaoController();
             $(function () {
-                $('#btnAdd').on('click', function (event) {
-                    negociacaoController.adiciona(event);
+                $('#btnAdd').on({
+                    'click': negociacaoController.adiciona.bind(negociacaoController)
+                });
+                $('#btnImporta').on({
+                    click: negociacaoController.importaDatos.bind(negociacaoController)
                 });
             });
         }

@@ -22,6 +22,12 @@ System.register([], function (exports_1, context_1) {
                     });
                     return volume;
                 }
+                paraTexto() {
+                    console.log('Negociacoes All, ' + JSON.stringify(this._negociacoes));
+                }
+                ehEquals(negociacoes) {
+                    return JSON.stringify(this._negociacoes) == JSON.stringify(negociacoes.toArray());
+                }
             };
             exports_1("Negociacoes", Negociacoes);
         }
