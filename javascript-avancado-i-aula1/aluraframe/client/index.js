@@ -1,13 +1,16 @@
 var form = document.querySelector(".form");
-
 var campos = [
     form.data,
     form.quantidade,
     form.valor
 ];
 
-
+var btnImportarNegociacoes = document.querySelector("#btnImportarNegociacoes");
 var tBody = document.querySelector("table tbody");
+
+btnImportarNegociacoes.addEventListener("click", function(){
+    alert("click btn");
+});
 
 form.addEventListener("submit", function(event){
     event.preventDefault();
@@ -20,6 +23,7 @@ form.addEventListener("submit", function(event){
    var tdVolume = document.createElement("td");
    tdVolume.textContent = campos[1].value * campos[2].value;
    tr.appendChild(tdVolume);
+  
    tBody.appendChild(tr);
    form.reset();   
 });
